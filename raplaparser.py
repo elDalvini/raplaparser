@@ -59,7 +59,7 @@ for j in range(52):
                 tdozent = "Kein Dozent"
             
             room_av = 0
-            if len(room) > 0:
+            if len(room) == 1 :
                 splitroom = room[0].split(',')
                 for k in range(0,len(splitroom)):
                     if (splitroom[k].find('TMT18B')) == -1: 
@@ -71,7 +71,7 @@ for j in range(52):
                     if room_av == 0:
                         troom = "Kein Raum"
             else:
-                troom = "Kein Raum"
+                troom = "Kein Raum, siehe Website"
             
             tdatestring = Days[i]
             splitstring = tdatestring.split(' ')
