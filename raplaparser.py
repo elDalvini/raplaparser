@@ -12,7 +12,7 @@ import mysql.connector
 #mysql connection:
 mydb = mysql.connector.connect(host = "localhost", user = "admin", passwd = "nWd3cOhlXXGbV4i9V7yJ", database = "rapla")
 mycursor = mydb.cursor()
-#get currant date, week Number and set locale
+#get current date, week Number and set locale
 cdate = date.today()-datetime.timedelta(days = 150)
 cweek = cdate.isocalendar()[1]
 cyear = cdate.year
