@@ -39,8 +39,8 @@ if cDate != lastexec.date():
 		if datetime.datetime.now() >= bedtime:
 			bot.send_message(chat_id = chatID, text = "Go to bed! yout have to get up tomorrow at "+str(wakeup.hour)+":"+str(wakeup.minute))
 
-mycursor.execute('TRUNCATE teleport')
-mydb.commit()
-query = 'INSERT INTO teleport (rep) VALUES (\"'+str(cDate)+'\")'
-mycursor.execute(query)
-mydb.commit()
+			mycursor.execute('TRUNCATE teleport')
+			mydb.commit()
+			query = 'INSERT INTO teleport (rep) VALUES (\"'+str(cDate)+'\")'
+			mycursor.execute(query)
+			mydb.commit()
