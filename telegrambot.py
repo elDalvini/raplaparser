@@ -41,6 +41,6 @@ if cDate != lastexec.date():
 
 mycursor.execute('TRUNCATE teleport')
 mydb.commit()
-query = 'INSERT INTO teleport rep VALUES \"'+str(cDate)+'\"'
+query = 'INSERT INTO teleport (rep) VALUES (\"'+str(cDate)+'\")'
 mycursor.execute(query)
 mydb.commit()
