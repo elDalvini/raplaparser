@@ -27,5 +27,5 @@ if len(result) > 0:
 
 	wakeup = firstt - datetime.timedelta(0,0,0,0,15,1)
 
-	if datetime.datetime.now() >= (wakeup-datetime.timedelta(0,0,0,0,0,8)):
+	if datetime.datetime.now() >= (wakeup-datetime.timedelta(0,0,0,0,0,16)):
 		bot.send_message(chat_id = chatID, text = "Go to bed! yout have to get up tomorrow at "+str(wakeup.hour)+":"+str(wakeup.minute))
