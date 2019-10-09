@@ -21,7 +21,7 @@ query = 'SELECT time_start FROM eventsG2 WHERE time_start >\"'+str(tomrrw)+'\" A
 
 mycursor.execute(query)
 result = mycursor.fetchall()
-if result > 0:
+if len(result) > 0:
 
 	firstt = result[0][0]
 
