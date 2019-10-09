@@ -25,7 +25,7 @@ if len(result) > 0:
 
 	firstt = result[0][0]
 	print(str(firstt))
-	wakeup = firstt - datetime.timedelta(0,0,0,0,15,1)
+	wakeup = firstt - datetime.timedelta(minutes=15,hours=1)
 	print(str(wakeup))
 
 	if datetime.datetime.now() >= (wakeup-datetime.timedelta(0,0,0,0,0,16)):
