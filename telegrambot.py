@@ -18,6 +18,8 @@ tom1 = cDate + datetime.timedelta(2)
 tomrrw1 = datetime.datetime.combine(tom1,datetime.datetime.min.time())
 mycursor.execute('SELECT * FROM teleport')
 lastexec = mycursor.fetchall()[0][0]
+print(cDate)
+print(lastexec)
 
 if cDate != lastexec:
 
