@@ -1,3 +1,5 @@
+#! /usr/bin/python3
+
 import telegram
 import mysql.connector
 import datetime
