@@ -24,8 +24,9 @@ result = mycursor.fetchall()
 if len(result) > 0:
 
 	firstt = result[0][0]
-
+	print(str(firstt))
 	wakeup = firstt - datetime.timedelta(0,0,0,0,15,1)
+	print(str(wakeup))
 
 	if datetime.datetime.now() >= (wakeup-datetime.timedelta(0,0,0,0,0,16)):
 		bot.send_message(chat_id = chatID, text = "Go to bed! yout have to get up tomorrow at "+str(wakeup.hour)+":"+str(wakeup.minute))
