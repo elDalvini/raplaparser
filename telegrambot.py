@@ -21,7 +21,7 @@ lastexec = mycursor.fetchall()[0][0]
 print(cDate)
 print(lastexec.date())
 
-if cDate != lastexec:
+if cDate != lastexec.date():
 
 	query = 'SELECT time_start FROM eventsG2 WHERE time_start >\"'+str(tomrrw)+'\" AND time_start<\"'+str(tomrrw1)+'\" ORDER BY `eventsG2`.`time_start` ASC'
 
