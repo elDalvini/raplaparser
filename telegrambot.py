@@ -37,7 +37,7 @@ if cDate != lastexec.date():
 		print(bedtime)
 		print(datetime.datetime.now())
 		if datetime.datetime.now() >= bedtime:
-			bot.send_message(chat_id = chatID, text = "Go to bed! yout have to get up tomorrow at "+str(wakeup.hour)+":"+str(wakeup.minute))
+			bot.send_message(chat_id = chatID, text = "Go to bed! You have to get up tomorrow at "+str(wakeup.hour)+":"+str(wakeup.minute))
 
 			mycursor.execute('TRUNCATE teleport')
 			mydb.commit()
