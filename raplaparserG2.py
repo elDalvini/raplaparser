@@ -58,6 +58,17 @@ for j in range(52):
                 else:
                     tdozent = "Kein Dozent"
                 
+                tdatestring = Days[i]
+                splitstring = tdatestring.split(' ')
+                tday = splitstring[0]
+                for l in range(1,len(splitstring)):
+                    if splitstring[l].find("-") != -1:
+                        splittime = splitstring[l].split('-')
+                        tstarttime = splittime[0]
+                        tendtime = splittime[1]
+                tstartdatetime = datetime.datetime.strptime(tday+str(sdate.year)+str(sweek)+tstarttime,'%a%Y%W%H:%M')
+                tstopdatetime = datetime.datetime.strptime(tday+str(sdate.year)+str(sweek)+tendtime,'%a%Y%W%H:%M')
+
                 room_av = 0
                 if len(room) == 1:
                     splitroom = room[0].split(',')
@@ -70,19 +81,25 @@ for j in range(52):
                                 room_av = 1
                         if room_av == 0:
                             troom = "Kein Raum"
+                elif len(room) == 0:
+                    troom = "Kein Raum"
                 else:
-                    troom = "Kein Raum, siehe Website"
+                    troom = "Raum nicht lesbar"
+                    roomcond = tree.xpath('''//span[contains(.,'%s') and contains(.,'%s')]/table/tr[contains(.,"Ressourcen:")]/td[2]/small/text()''' %(str(Days[i]),str(Titles[i])))
+                    for i in range(0,len(roomcond)):
+                        if (roomcond[i].find(str(tstartdatetime.day)) != -1 and roomcond[i].find(str(tstartdatetime.month)) != -1):
+                            splitroom = room[i].split(',')
+                            for k in range(0,len(splitroom)):
+                                if (splitroom[k].find('TMT18B')) == -1: 
+                                    if room_av == 1:
+                                        troom = [troom,splitroom[k]]
+                                    else:
+                                        troom = splitroom[k]
+                                        room_av = 1
+                                if room_av == 0:
+                                    troom = "Kein Raum"
                 
-                tdatestring = Days[i]
-                splitstring = tdatestring.split(' ')
-                tday = splitstring[0]
-                for l in range(1,len(splitstring)):
-                    if splitstring[l].find("-") != -1:
-                        splittime = splitstring[l].split('-')
-                        tstarttime = splittime[0]
-                        tendtime = splittime[1]
-                tstartdatetime = datetime.datetime.strptime(tday+str(sdate.year)+str(sweek)+tstarttime,'%a%Y%W%H:%M')
-                tstopdatetime = datetime.datetime.strptime(tday+str(sdate.year)+str(sweek)+tendtime,'%a%Y%W%H:%M')
+
                 mycursor.execute('INSERT INTO eventsG2 (title, reader, time_start, time_end, room) VALUES (%s,%s,%s,%s,%s)',(str(ttitle), str(tdozent), str(tstartdatetime), str(tstopdatetime), str(troom)))
         mydb.commit()
     sweek += 1
