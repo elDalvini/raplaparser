@@ -87,7 +87,7 @@ for j in range(52):
                     troom = "Raum nicht lesbar"
                     roomcond = tree.xpath('''//span[contains(.,'%s') and contains(.,'%s')]/table/tr[contains(.,"Ressourcen:")]/td[2]/small/text()''' %(str(Days[i]),str(Titles[i])))
                     for i in range(0,len(roomcond)):
-                        if (roomcond[i].find(str(tstartdatetime.day)) != -1 and roomcond[i].find(str(tstartdatetime.month)) != -1):
+                        if (roomcond[i].find(str(tstartdatetime.day)+"."+x.strftime("%m")) != -1 ):
                             splitroom = room[i].split(',')
                             for k in range(0,len(splitroom)):
                                 if (splitroom[k].find('TMT18B')) == -1: 
