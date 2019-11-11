@@ -67,8 +67,11 @@ for j in range(52):
                     splittime = splitstring[l].split('-')
                     tstarttime = splittime[0]
                     tendtime = splittime[1]
-            tstartdatetime = datetime.datetime.strptime(tday+str(sdate.year)+str(sweek)+tstarttime,'%a%Y%W%H:%M')
-            tstopdatetime = datetime.datetime.strptime(tday+str(sdate.year)+str(sweek)+tendtime,'%a%Y%W%H:%M')
+
+            startstr = tday+str(sdate.year)+str(sweek)+tstarttime
+            stopstr = tday+str(sdate.year)+str(sweek)+tendtime
+            tstartdatetime = datetime.datetime.strptime(startstr,'%a%Y%W%H:%M')
+            tstopdatetime = datetime.datetime.strptime(stopstr,'%a%Y%W%H:%M')
 
             room_av = 0
             if len(room) == 1:
@@ -101,6 +104,6 @@ for j in range(52):
                                 troom = "Kein Raum"
                 
 
-            mycursor.execute('INSERT INTO events (title, reader, time_start, time_end, room, url, year, week, day) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)',(str(ttitle), str(tdozent), str(tstartdatetime), str(tstopdatetime), str(troom), str(url), str(sdate.year), str(sweek), str(tday)))
+            mycursor.execute('INSERT INTO events (title, reader, time_start, time_end, room, url, year, week, day, startstr, stopstr) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)',(str(ttitle), str(tdozent), str(tstartdatetime), str(tstopdatetime), str(troom), str(url), str(sdate.year), str(sweek), str(tday), str(startstr), str(stopstr)))
         mydb.commit()
     sweek += 1
