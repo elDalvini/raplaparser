@@ -33,7 +33,8 @@ for j in range(52):
     # sweek = cweek
     if sdate > datetime.datetime(2019,9,15):
         #collect web page at current day
-        page = requests.get('https://rapla.dhbw-karlsruhe.de/rapla?key=ah9tAVphicaj4FqCtMVJck1IPTyWNL7sCUaIN7ywI1HrATh0wE9uofal7KGMWCF4&day='+str(sdate.day)+'&month='+str(sdate.month)+'&year='+str(sdate.year))
+        url = 'https://rapla.dhbw-karlsruhe.de/rapla?key=ah9tAVphicaj4FqCtMVJck1IPTyWNL7sCUaIN7ywI1HrATh0wE9uofal7KGMWCF4&day='+str(sdate.day)+'&month='+str(sdate.month)+'&year='+str(sdate.year)
+        page = requests.get(url)
         tree = html.fromstring(page.content)
 
         #Times and titles:
@@ -100,6 +101,6 @@ for j in range(52):
                                 troom = "Kein Raum"
                 
 
-            mycursor.execute('INSERT INTO events (title, reader, time_start, time_end, room) VALUES (%s,%s,%s,%s,%s)',(str(ttitle), str(tdozent), str(tstartdatetime), str(tstopdatetime), str(troom)))
+            mycursor.execute('INSERT INTO events (title, reader, time_start, time_end, room, url) VALUES (%s,%s,%s,%s,%s,%s)',(str(ttitle), str(tdozent), str(tstartdatetime), str(tstopdatetime), str(troom), str(url)))
         mydb.commit()
     sweek += 1
