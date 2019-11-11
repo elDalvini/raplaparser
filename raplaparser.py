@@ -101,6 +101,6 @@ for j in range(52):
                                 troom = "Kein Raum"
                 
 
-            mycursor.execute('INSERT INTO events (title, reader, time_start, time_end, room, url) VALUES (%s,%s,%s,%s,%s,%s)',(str(ttitle), str(tdozent), str(tstartdatetime), str(tstopdatetime), str(troom), str(url)))
+            mycursor.execute('INSERT INTO events (title, reader, time_start, time_end, room, url, year, week, day) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)',(str(ttitle), str(tdozent), str(tstartdatetime), str(tstopdatetime), str(troom), str(url), str(sdate.year), str(sweek), str(tday)))
         mydb.commit()
     sweek += 1
