@@ -66,8 +66,8 @@ for j in range(52):
                         splittime = splitstring[l].split('-')
                         tstarttime = splittime[0]
                         tendtime = splittime[1]
-                tstartdatetime = datetime.datetime.strptime(tday+str(sdate.year)+str(sweek)+tstarttime,'%a%Y%W%H:%M')
-                tstopdatetime = datetime.datetime.strptime(tday+str(sdate.year)+str(sweek)+tendtime,'%a%Y%W%H:%M')
+                tstartdatetime = datetime.datetime.strptime(tday+'-'+str(sdate.year)+'-'+str(sweek)+'-'+tstarttime,'%a-%Y-%W-%H:%M')
+                tstopdatetime = datetime.datetime.strptime(tday+'-'+str(sdate.year)+'-'+str(sweek)+'-'+tendtime,'%a-%Y-%W-%H:%M')
 
                 room_av = 0
                 if len(room) == 1:
