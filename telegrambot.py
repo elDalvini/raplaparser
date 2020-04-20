@@ -5,8 +5,8 @@ import mysql.connector
 import datetime
 from datetime import date
 
-bot = telegram.Bot(token = '954355522:AAFCJExvswk55znAmYREfc1alS-klYyn8Hk')
-chatID = 283463734
+bot = telegram.Bot(token = 'xxxxxxxxxxxxxxxxxxxxxxxxxx')
+chatID = xxxxxxxxxxx
 
 mydb = mysql.connector.connect(host = "localhost", user = "admin", passwd = "nWd3cOhlXXGbV4i9V7yJ", database = "rapla")
 mycursor = mydb.cursor()
