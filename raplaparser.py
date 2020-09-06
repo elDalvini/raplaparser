@@ -70,8 +70,12 @@ for j in range(52):
 
             startstr = tday+'-'+str(sdate.year)+'-'+str(sweek)+'-'+tstarttime
             stopstr = tday+'-'+str(sdate.year)+'-'+str(sweek)+'-'+tendtime
-            tstartdatetime = datetime.datetime.strptime(startstr,'%a-%Y-%W-%H:%M')
-            tstopdatetime = datetime.datetime.strptime(stopstr,'%a-%Y-%W-%H:%M')
+            try:
+             tstartdatetime = datetime.datetime.strptime(startstr,'%a-%Y-%W-%H:%M')
+             tstopdatetime = datetime.datetime.strptime(stopstr,'%a-%Y-%W-%H:%M')
+            except:
+             print('Error in time reading')
+             continue
 
             room_av = 0
             if len(room) == 1:
