@@ -33,7 +33,7 @@ for j in range(52):
     # sweek = cweek
     if sdate > datetime.datetime(2019,9,15):
         #collect web page at current day
-        url = 'https://rapla.dhbw-karlsruhe.de/rapla?key=ah9tAVphicaj4FqCtMVJck1IPTyWNL7sCUaIN7ywI1HrATh0wE9uofal7KGMWCF4&day='+str(sdate.day)+'&month='+str(sdate.month)+'&year='+str(sdate.year)
+        url = 'https://rapla.dhbw-karlsruhe.de/rapla?key=ah9tAVphicaj4FqCtMVJcq5B-fx3fL5vC8Yzp3fNoXCp74P5CA7v840yvix-0x4j&day='+str(sdate.day)+'&month='+str(sdate.month)+'&year='+str(sdate.year)
         page = requests.get(url)
         tree = html.fromstring(page.content)
 
